@@ -1,0 +1,7 @@
+{
+  "extends": "kaplankomputing",
+  "rules": {
+    "arrow-parens": 0,
+    "arrow-body-style": 0
+  }
+}
