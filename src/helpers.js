@@ -1,4 +1,5 @@
 import StellarSdk from 'stellar-sdk';
+import request from 'request';
 
 /**
  * Generate new Stellar keypair
@@ -34,6 +35,23 @@ export function selectNetwork(testnet = false) {
   } else {
     StellarSdk.Network.usePublicNetwork();
   }
+}
+
+/**
+ * Ask friendbot for Lumens
+ * @param address Address to send lumens to
+ */
+export function callFaucet(address) {
+  return new Promise((resolve, reject) => {
+    request.get({
+      url: 'https://horizon-testnet.stellar.org/friendbot',
+      qs: { addr: address },
+      json: true,
+    }, (err, response, data) => {
+      if (err || response.statusCode !== 200) { return reject({ err: data.detail }); }
+      resolve({ hash: data.hash, ledger: data.ledger });
+    });
+  });
 }
 
 /**

@@ -4,10 +4,12 @@ import {
   getBalance,
   genKeypair,
   sendTransaction,
+  callFaucet,
 } from './helpers';
 
 program.version('0.0.1');
 
+// Generate new wallet
 program
   .command('getnewaddress')
   .action(() => {
@@ -16,6 +18,7 @@ program
     console.log(`secret: ${keypair.secret()}`);
   });
 
+  // Get balance
 program
   .command('getbalance <address>')
   .option('-t --testnet [testnet]')
@@ -28,6 +31,7 @@ program
       .catch((err) => console.log(err));
   });
 
+// Send transaction
 program
   .command('sendtransaction <privateKey> <destination> <amount>')
   .option('-t --testnet [testnet]')
@@ -35,6 +39,15 @@ program
     sendTransaction(privateKey, destination, amount, !testnet ? true : testnet === 'true')
       .then((res) => console.log(`Transaction sent! \n Hash: ${res.hash} \n Ledger: ${res.ledger}`))
       .catch((err) => console.log(err));
+  });
+
+// Call testnet faucet
+program
+  .command('callfaucet <address>')
+  .action((address) => {
+    callFaucet(address)
+      .then((res) => console.log(`Account successfully funded!\n Hash: ${res.hash}\nLedger: ${res.ledger}`))
+      .catch((err) => console.log(err.err));
   });
 
 program.parse(process.argv);

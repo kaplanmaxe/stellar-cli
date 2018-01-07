@@ -10,4 +10,4 @@ Liteweight, CLI Stellar Lumens Wallet.
 |---------|------------|-------------|
 | `getnewaddress` |      | Generates new wallet public key/secret |
 | `getbalance <address>` | <ul><li>`-t` true/false to use testnet</li></ul> | Get balance of given address |
-| `sendTransaction <privateKey> <destination> <amount>` | <ul><li>`-t` true/false to use testnet</li></ul> | Send transaction to wallet |
+| `sendtransaction <privateKey> <destination> <amount>` | <ul><li>`-t` true/false to use testnet</li></ul> | Send transaction to wallet |

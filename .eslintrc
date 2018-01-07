@@ -3,5 +3,10 @@
   "rules": {
     "arrow-parens": 0,
     "arrow-body-style": 0
+  },
+  "globals": {
+    "test": true,
+    "global": true,
+    "expect": true
   }
 }

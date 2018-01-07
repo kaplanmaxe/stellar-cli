@@ -6,12 +6,14 @@
   "dependencies": {
     "commander": "^2.12.2",
     "dotenv": "^4.0.0",
+    "request": "^2.83.0",
     "stellar-sdk": "^0.8.0"
   },
   "scripts": {
     "build": "gulp transpile-module",
     "build:watch": "gulp",
-    "prepublish": "yarn build"
+    "prepublish": "yarn build",
+    "test": "jest"
   },
   "bin": {
     "stellar-cli": "./dist/index.js"
@@ -22,6 +24,7 @@
     "babel-preset-kaplankomputing": "^1.0.0",
     "eslint-config-kaplankomputing": "^1.0.0",
     "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.0"
+    "gulp-babel": "^7.0.0",
+    "jest": "^22.0.4"
   }
 }
