@@ -1,6 +1,8 @@
 # Stellar-CLI
 
 [![Build Status](https://travis-ci.org/kaplanmaxe/stellar-cli.svg?branch=master)](https://travis-ci.org/kaplanmaxe/stellar-cli)
+[![Known Vulnerabilities](https://snyk.io/test/github/kaplanmaxe/stellar-cli/badge.svg?targetFile=package.json)](https://snyk.io/test/github/kaplanmaxe/stellar-cli?targetFile=package.json)
+
 
 Liteweight, CLI Stellar Lumens Wallet.
 
