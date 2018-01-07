@@ -1,0 +1,9 @@
+.eslintignore
+.eslintrc
+.gitignore
+.travis.yml
+gulpfile.js
+.vscode
+__tests__
+src/
+!dist/

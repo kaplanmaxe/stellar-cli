@@ -7,7 +7,7 @@ import {
   callFaucet,
 } from './helpers';
 
-program.version('0.0.1');
+program.version('0.0.3');
 
 // Generate new wallet
 program
