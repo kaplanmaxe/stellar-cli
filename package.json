@@ -14,7 +14,7 @@
     "build": "gulp transpile-module",
     "build:watch": "gulp",
     "prepublish": "yarn build",
-    "test": "jest --coverage"
+    "test": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "bin": {
     "stellar-cli": "./dist/index.js"
