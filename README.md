@@ -1,5 +1,7 @@
 # Stellar-CLI
 
+[![Build Status](https://travis-ci.org/kaplanmaxe/stellar-cli.svg?branch=master)](https://travis-ci.org/kaplanmaxe/stellar-cli)
+
 Liteweight, CLI Stellar Lumens Wallet.
 
 **NOTE: This is still in beta and open source software. By using this software, you agree that the developer is not responsible for any lost funds.**
