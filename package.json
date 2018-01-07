@@ -2,6 +2,7 @@
   "name": "stellar-cli",
   "version": "0.0.1",
   "main": "dist/index.js",
+  "description": "Liteweight, CLI wallet for Stellar Lumens",
   "license": "MIT",
   "dependencies": {
     "commander": "^2.12.2",
