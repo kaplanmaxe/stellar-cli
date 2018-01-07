@@ -40,3 +40,14 @@ stellar-cli command...
 | `getbalance <address>` | <ul><li>`-t` true/false to use testnet</li></ul> | Get balance of given address |
 | `sendtransaction <privateKey> <destination> <amount>` | <ul><li>`-t` true/false to use testnet</li></ul> | Send transaction to wallet |
 | `callfaucet <address>` | | Asks friendbot for lumens. Works on testnet only. |
+
+### Authors
+
+- [Max Kaplan](https://twitter.com/maxekaplan)
+
+### Donations:
+
+- XLM: GB7YO7J6MMDQMVCFFUGEIY4TCX67P6QZRJ46ZVHCO5MQ6V7YXPWB7WHQ
+- BTC: 1MaxKapqcv8KVHw1mTzZd23uvntnLABvnB
+
+Thanks!

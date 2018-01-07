@@ -1,6 +1,6 @@
 {
   "name": "stellar-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "description": "Liteweight, CLI wallet for Stellar Lumens",
   "license": "MIT",
