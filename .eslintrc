@@ -7,6 +7,7 @@
   "globals": {
     "test": true,
     "global": true,
-    "expect": true
+    "expect": true,
+    "jest": true
   }
 }

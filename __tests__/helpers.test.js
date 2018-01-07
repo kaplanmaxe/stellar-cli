@@ -1,8 +1,8 @@
 import {
   genKeypair,
   getKeypairFromPrivateKey,
-  callFaucet,
   getBalance,
+  sendTransaction,
 } from '../src/helpers';
 
 test('Keypair should generate successfully', () => {
@@ -16,15 +16,19 @@ test('Get public key from secret', () => {
   expect(keypair.publicKey()).toBe('GBOUQQ3PZULFVMY7GQRXEGNABSWVWQ6PRM3TGVDEALSSFUH75NAJW4QU');
 });
 
-test('Generate wallet and call faucet', () => {
-  const keypair = genKeypair();
-  expect.assertions(1);
-  return callFaucet(keypair.publicKey())
-    .then((res) => expect(res.hash).not.toBe(undefined));
-});
-
 test('Check balance of wallet', () => {
   expect.assertions(1);
   return getBalance('GCNGOYIEGGF24TSHNMP5W62T3IURL4B7DLOMQYMPDEN5AGN6BLUQWY4I', true)
     .then((res) => expect(Number(res[0].balance)).toBeGreaterThanOrEqual(10000));
+});
+
+test('Send transaction', () => {
+  jest.setTimeout(10000);
+  expect.assertions(1);
+  return sendTransaction(
+    'SCC2L2KAEP3SVLX2KZL6SXCYPDPTEZAFGRW25ASX6UC6AUUKJ3GL3ZPK',
+    'GCNGOYIEGGF24TSHNMP5W62T3IURL4B7DLOMQYMPDEN5AGN6BLUQWY4I',
+    '0.0001',
+    true,
+  ).then((res) => expect(res.hash).not.toBe(undefined));
 });
