@@ -5,6 +5,7 @@ import {
   genKeypair,
   sendTransaction,
   callFaucet,
+  voteForInflationLumens,
 } from './helpers';
 
 program.version('0.0.4');
@@ -48,6 +49,13 @@ program
     callFaucet(address)
       .then((res) => console.log(`Account successfully funded!\n Hash: ${res.hash}\nLedger: ${res.ledger}`))
       .catch((err) => console.log(err.err));
+  });
+
+program
+  .command('voteforinflation <secret> <inflationDestination>')
+  .action(async (secret, inflationDestination) => {
+    const data = await voteForInflationLumens(secret, inflationDestination);
+    console.log(`Voted Successfully!\nHash: ${data.hash}\nLedger: ${data.ledger}`);
   });
 
 program.parse(process.argv);

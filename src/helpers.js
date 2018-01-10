@@ -30,7 +30,7 @@ export function connect(testnet = false) {
  * @param {boolean} testnet Use testnet
  */
 export function selectNetwork(testnet = false) {
-  if (!testnet || testnet === true) {
+  if (testnet === true) {
     StellarSdk.Network.useTestNetwork();
   } else {
     StellarSdk.Network.usePublicNetwork();
@@ -121,4 +121,26 @@ export function buildTransaction(account, destination, amount) {
       amount,
     }))
     .build();
+}
+
+/**
+ * Vote for inflation lumens
+ */
+export async function voteForInflationLumens(secret, destination) {
+  selectNetwork(false);
+  const server = connect(false);
+  const keypair = getKeypairFromPrivateKey(secret);
+  try {
+    const account = await server.loadAccount(keypair.publicKey());
+    const transaction = new StellarSdk.TransactionBuilder(account)
+      .addOperation(StellarSdk.Operation.setOptions({
+        inflationDest: destination,
+      }))
+      .build();
+    transaction.sign(keypair);
+    const { hash, ledger } = await server.submitTransaction(transaction);
+    return { hash, ledger };
+  } catch (e) {
+    console.error(e.data.extras.result_codes);
+  }
 }
