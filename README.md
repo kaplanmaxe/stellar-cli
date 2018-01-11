@@ -38,6 +38,7 @@ stellar-cli command...
 | `getbalance <address>` | <ul><li>`-t` true/false to use testnet</li></ul> | Get balance of given address |
 | `sendtransaction <privateKey> <destination> <amount>` | <ul><li>`-t` true/false to use testnet</li></ul> | Send transaction to wallet |
 | `callfaucet <address>` | | Asks friendbot for lumens. Works on testnet only. |
+| `voteforinflation <privateKey> <inflationDestination>` | | Vote on an inflation destination. |
 
 ### Authors
 
