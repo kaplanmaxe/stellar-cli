@@ -1,4 +1,3 @@
 {
-  "presets": ["kaplankomputing"],
-  "plugins": ["transform-async-to-generator"]
+  "presets": ["kaplankomputing"]
 }

@@ -59,13 +59,14 @@ export function callFaucet(address) {
  * @param {string} address address to check
  * @param {boolean} testnet
  */
-export function getBalance(address, testnet = false) {
-  return new Promise((resolve, reject) => {
+export async function getBalance(address, testnet = false) {
+  try {
     const server = connect(testnet);
-    server.loadAccount(address)
-      .then(res => resolve(res.balances))
-      .catch(err => reject(err.message.detail));
-  });
+    const { balances } = await server.loadAccount(address);
+    return balances;
+  } catch (e) {
+    console.error(e.message.detail);
+  }
 }
 
 /**
@@ -75,22 +76,22 @@ export function getBalance(address, testnet = false) {
  * @param {string} amount Amount to send
  * @param {boolean} testnet
  */
-export function sendTransaction(privateKey, destination, amount, testnet = false) {
+export async function sendTransaction(privateKey, destination, amount, testnet = false) {
   if (!privateKey || !destination || !amount) {
     throw new Error('An address, amount, and private key must be specified');
   }
-  return new Promise((resolve, reject) => {
+
+  try {
     selectNetwork(testnet);
     const server = connect(testnet);
     const keypair = getKeypairFromPrivateKey(privateKey);
-    server.loadAccount(keypair.publicKey())
-      .then((account) => {
-        const transaction = createTransaction(account, destination, amount, keypair);
-        server.submitTransaction(transaction)
-          .then((res) => resolve({ hash: res.hash, ledger: res.ledger }))
-          .catch((err) => reject(err.data.extras.result_codes));
-      });
-  });
+    const account = await server.loadAccount(keypair.publicKey());
+    const transaction = createTransaction(account, destination, amount, keypair);
+    const { hash, ledger } = await server.submitTransaction(transaction);
+    return { hash, ledger };
+  } catch (e) {
+    console.error(e.data.data.detail);
+  }
 }
 
 /**

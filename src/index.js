@@ -8,7 +8,7 @@ import {
   voteForInflationLumens,
 } from './helpers';
 
-program.version('0.0.4');
+program.version('1.0.0');
 
 // Generate new wallet
 program
@@ -23,39 +23,52 @@ program
 program
   .command('getbalance <address>')
   .option('-t --testnet [testnet]')
-  .action((address, { testnet }) => {
+  .action(async (address, { testnet = false }) => {
     if (testnet && ['true', 'false'].indexOf(testnet) === -1) {
       throw new Error('Options for option testnet can either be true or false');
     }
-    getBalance(address, !testnet ? true : testnet === 'true')
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    try {
+      const balance = await getBalance(address, testnet === 'true');
+      console.log(balance);
+    } catch (e) {
+      console.error(`An error occurred: ${e}`);
+    }
   });
 
 // Send transaction
 program
   .command('sendtransaction <privateKey> <destination> <amount>')
   .option('-t --testnet [testnet]')
-  .action((privateKey, destination, amount, { testnet }) => {
-    sendTransaction(privateKey, destination, amount, !testnet ? true : testnet === 'true')
-      .then((res) => console.log(`Transaction sent! \n Hash: ${res.hash} \n Ledger: ${res.ledger}`))
-      .catch((err) => console.log(err));
+  .action(async (privateKey, destination, amount, { testnet = false }) => {
+    try {
+      const { hash, ledger } = await sendTransaction(privateKey, destination, amount, testnet === 'true');
+      console.log(`Transaction sent!\n Hash: ${hash}\n Ledger: ${ledger}`);
+    } catch (e) {
+      console.error(`An error occurred: ${e}`);
+    }
   });
 
 // Call testnet faucet
 program
   .command('callfaucet <address>')
-  .action((address) => {
-    callFaucet(address)
-      .then((res) => console.log(`Account successfully funded!\n Hash: ${res.hash}\nLedger: ${res.ledger}`))
-      .catch((err) => console.log(err.err));
+  .action(async (address) => {
+    try {
+      const { hash, ledger } = await callFaucet(address);
+      console.log(`Account successfully funded!\nHash: ${hash}\nLedger: ${ledger}`);
+    } catch (e) {
+      console.log(`An error occurred: ${e.err}`);
+    }
   });
 
 program
   .command('voteforinflation <secret> <inflationDestination>')
   .action(async (secret, inflationDestination) => {
-    const data = await voteForInflationLumens(secret, inflationDestination);
-    console.log(`Voted Successfully!\nHash: ${data.hash}\nLedger: ${data.ledger}`);
+    try {
+      const { hash, ledger } = await voteForInflationLumens(secret, inflationDestination);
+      console.log(`Voted Successfully!\nHash: ${hash}\nLedger: ${ledger}`);
+    } catch (e) {
+      console.error(`An error occured: ${e}`);
+    }
   });
 
 program.parse(process.argv);

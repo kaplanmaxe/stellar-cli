@@ -803,10 +803,11 @@ babel-preset-jest@^22.0.3:
     babel-plugin-jest-hoist "^22.0.3"
     babel-plugin-syntax-object-rest-spread "^6.13.0"
 
-babel-preset-kaplankomputing@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/babel-preset-kaplankomputing/-/babel-preset-kaplankomputing-1.0.0.tgz#df3e563e99e4c3be7ef382373f5969c4269eb36f"
+babel-preset-kaplankomputing@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/babel-preset-kaplankomputing/-/babel-preset-kaplankomputing-1.0.2.tgz#9ea94016ca48e2ff2567c4560c18110e2ffff1c9"
   dependencies:
+    babel-plugin-transform-async-to-generator "^6.24.1"
     babel-plugin-transform-class-properties "^6.24.1"
     babel-plugin-transform-object-rest-spread "^6.26.0"
     babel-plugin-transform-runtime "^6.23.0"

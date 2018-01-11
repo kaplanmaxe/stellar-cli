@@ -23,8 +23,7 @@
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-preset-kaplankomputing": "^1.0.0",
+    "babel-preset-kaplankomputing": "^1.0.2",
     "eslint-config-kaplankomputing": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
