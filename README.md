@@ -6,7 +6,7 @@
 
 Liteweight, CLI Stellar Lumens Wallet.
 
-**NOTE: This is still in beta and open source software. By using this software, you agree that the developer is not responsible for any lost funds.**
+**NOTE: This is open source software. By using this software, you agree that the developer is not responsible for any lost funds.**
 
 ### Installation
 
@@ -29,8 +29,6 @@ See commands section below.
 ```
 stellar-cli command...
 ```
-
-**As of right now, `stellar-cli` will always default to the testnet unless `-t false` is passed to the command.**
 
 ### Commands
 
