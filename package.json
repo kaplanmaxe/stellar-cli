@@ -1,6 +1,6 @@
 {
   "name": "stellar-cli",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "description": "Liteweight, CLI wallet for Stellar Lumens",
   "license": "MIT",
@@ -16,6 +16,10 @@
     "build:watch": "gulp",
     "prepublish": "yarn build",
     "test": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kaplanmaxe/stellar-cli.git"
   },
   "bin": {
     "stellar-cli": "./dist/index.js"
