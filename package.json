@@ -9,13 +9,15 @@
     "coveralls": "^3.0.0",
     "dotenv": "^4.0.0",
     "request": "^2.83.0",
-    "stellar-sdk": "^0.8.0"
+    "stellar-sdk": "^0.8.0",
+    "snyk": "^1.69.7"
   },
   "scripts": {
     "build": "gulp transpile-module",
     "build:watch": "gulp",
-    "prepublish": "yarn build",
-    "test": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "prepublish": "npm run snyk-protect; yarn build",
+    "test": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "snyk-protect": "snyk protect"
   },
   "repository": {
     "type": "git",
@@ -32,5 +34,6 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
     "jest": "^22.0.4"
-  }
+  },
+  "snyk": true
 }
