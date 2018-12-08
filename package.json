@@ -8,9 +8,9 @@
     "commander": "^2.12.2",
     "coveralls": "^3.0.0",
     "dotenv": "^4.0.0",
-    "request": "^2.83.0",
+    "request": "^2.84.0",
     "stellar-sdk": "^0.8.0",
-    "snyk": "^1.69.7",
+    "snyk": "^1.71.0",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0"
   },
