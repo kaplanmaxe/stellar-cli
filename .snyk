@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.10.1
+version: v1.14.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -9,3 +9,44 @@ patch:
   'npm:request:20160119':
     - coveralls > log-driver > codecov.io > request:
         patched: '2018-02-10T02:52:19.056Z'
+  SNYK-JS-LODASH-567746:
+    - babel-core > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - stellar-sdk > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-types > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-generator > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-template > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-register > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - snyk > inquirer > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - stellar-sdk > stellar-base > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - snyk > snyk-resolve-deps > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2020-05-01T05:32:08.164Z'
