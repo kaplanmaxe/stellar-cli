@@ -10,14 +10,14 @@
     "dotenv": "^4.0.0",
     "request": "^2.83.0",
     "stellar-sdk": "^0.8.0",
-    "snyk": "^1.69.7",
+    "snyk": "^1.316.1",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0"
   },
   "scripts": {
     "build": "gulp transpile-module",
     "build:watch": "gulp",
-    "prepublish": "npm run snyk-protect; yarn build",
+    "prepublish": "yarn run snyk-protect; yarn build",
     "test": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "snyk-protect": "snyk protect"
   },
